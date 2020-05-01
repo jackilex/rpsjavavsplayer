@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1><strong>PlayerReady 1</strong> Lets Play: Rock Paper Scissors</h1>
+
+    <script>
+
+        // var playerInput= prompt ('Lets play rock, paper and scissors!! pick: rock,paper or scissors')
+
+
+        // 1) GET USER INPUT AND VALIDATE INPUT
+        // USE FUNCTION AND IF DECLARATION
+            // a) create a function call getPayerChoice with a parameter of players input
+            // b) validate the input
+const getPlayerChoice= (playerInput) => {
+    var playerInput= prompt ('Lets play rock, paper and scissors!! pick: rock,paper or scissors')
+  playerInput= playerInput.toLowerCase();
+  if (playerInput === 'rock'|| playerInput === 'paper'|| playerInput ==='scissors'){
+    return playerInput;
+  }else{
+    console.log('This is not a valid entry');
+    alert('This is not a valid entry');
+  };
+};
+
+// 2) GET COMPUTER CHOICE RANDOMLY WITHING AND ARRAY
+        // creat another function call getComputerChoice
+        // the function will have an array and random selection for computer
+const getComputerChoice= function(){
+  var java=['rock','paper','scissors'];
+  return java[Math.floor(Math.random()* java.length)];
+};
+
+
+    // 3) SET RULES TO GAME
+        //create a function that will determine rules
+const determineWinner= (getPlayerChoice,getComputerChoice) =>{
+  if (getPlayerChoice === getComputerChoice){
+    
+    return 'the game was a tie';
+  };
+  if (getPlayerChoice === 'rock'){
+    if (getComputerChoice=== 'paper'){
+      return 'Javascript won the game';
+    }else{
+      return 'You Won!';
+    };
+  };
+  if (getPlayerChoice === 'paper'){
+    if (getComputerChoice=== 'scissors'){
+      return 'Javascript won the game';
+    }else{
+      return 'You Won!';
+    };
+  };
+
+  if (getPlayerChoice === 'scissors'){
+    if (getComputerChoice=== 'rock'){
+      return 'Javascript won the game';
+    }else{
+      return 'You Won!';
+    }
+  }
+};
+
+
+    // RETURN RESULT with another function
+const playGame= function (){
+  const userChoice = getPlayerChoice('papers');
+  const computerChoice = getComputerChoice();
+  console.log('you chose:' + userChoice);
+  console.log('Java picked:' + computerChoice);
+  console.log(determineWinner(userChoice,computerChoice));
+  alert(determineWinner(userChoice,computerChoice));
+  alert('you chose: ' + userChoice + ' Java picked: ' + computerChoice);
+};
+
+// call the function ton start game
+playGame()
+
+    </script>
+    
+</body>
+</html>
